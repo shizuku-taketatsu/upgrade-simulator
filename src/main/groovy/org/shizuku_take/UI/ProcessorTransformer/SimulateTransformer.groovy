@@ -39,6 +39,7 @@ class SimulateTransformer implements ResponseTransformer
                     println inputForm
                     // show the input form
                     inputForm.build(doc, DataInstances.dataMap.keySet() as String[])
+                    hr ""
                     // show the results
                     if (maxEffort == null)
                     {

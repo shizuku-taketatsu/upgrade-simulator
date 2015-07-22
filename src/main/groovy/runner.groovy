@@ -29,7 +29,7 @@ class MainClass
 
         if(Desktop.isDesktopSupported())
         {
-            println("Destop is supported.. starting your browser")
+            println("Desktop is supported.. starting your browser")
             Desktop.getDesktop().browse(new URI("http://localhost:8080/"))
             println("Done")
         }

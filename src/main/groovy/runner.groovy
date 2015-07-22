@@ -2,6 +2,8 @@ import org.shizuku_take.UI.Processor.SimulateProcessor
 import org.shizuku_take.UI.ProcessorTransformer.SimulateTransformer
 import org.shizuku_take.UI.*
 
+import java.awt.Desktop
+
 import static spark.Spark.*
 
 /**
@@ -22,6 +24,14 @@ class MainClass
             new SimulateTransformer()
         )
         get("/exit", {req, res -> stop(); System.exit(0)})
+        awaitInitialization();
         println("Sparks serves at port 8080")
+
+        if(Desktop.isDesktopSupported())
+        {
+            println("Destop is supported.. starting your browser")
+            Desktop.getDesktop().browse(new URI("http://localhost:8080/"))
+            println("Done")
+        }
     }
 }

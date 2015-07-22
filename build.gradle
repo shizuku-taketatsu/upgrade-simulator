@@ -1,0 +1,49 @@
+group 'org.shizuku_take'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'gradle-one-jar'
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileGroovy {
+    groovyOptions.metaClass.optionMap = { [indy: true, encoding: "UTF-8"] }
+}
+
+compileTestGroovy {
+    groovyOptions.metaClass.optionMap = { [indy: true, encoding: "UTF-8"] }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.1:indy'
+    compile 'com.sparkjava:spark-core:2.2'
+    testCompile ("org.spockframework:spock-core:1.0-groovy-2.4") {
+        exclude module: "groovy-all"
+    }
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+task run (dependsOn: 'classes', type: JavaExec) {
+    main = 'MainClass'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task oneJar (type: OneJar) {
+    mainClass = 'MainClass'
+}

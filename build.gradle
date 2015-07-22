@@ -15,8 +15,8 @@ apply plugin: 'java'
 apply plugin: 'gradle-one-jar'
 
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 compileGroovy {
     groovyOptions.metaClass.optionMap = { [indy: true, encoding: "UTF-8"] }

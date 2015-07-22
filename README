@@ -1,0 +1,22 @@
+= upgrade-simulator
+
+For the vast players of Lunaria Story(TM), it is clear that refinement is a random process.
+However, we don't have a clear picture about how easy / hard a refinement process is.
+
+This software can help you estimate how much resources you need to invest to get a successful
+result.
+
+== Requirement
+* A browser
+* Port 8080 should be available
+* Java 1.7 or up
+* Groovy 2.4 (if you want to build from source)
+
+== Usage
+
+The user interface is designed as web pages, that is, this application is designed as a server.
+So after you started the application, run you browser and pointing it to:
+
+http://localhost:8080/
+
+You can see the user interface if everything are ok.
